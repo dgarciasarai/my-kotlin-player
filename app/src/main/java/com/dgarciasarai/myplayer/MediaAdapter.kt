@@ -24,13 +24,11 @@ class MediaAdapter(val data: List<Item>) : RecyclerView.Adapter<MediaAdapter.Med
 
     class MediaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(item: Item) {
-            with(itemView) {
+        fun bind(item: Item) = with(itemView) {
                 mediaTitle.text = item.title
                 mediaThumb.loadUrl(item.url)
                 mediaVideoIndicator.visible = item.type == Item.Type.VIDEO
                 setOnClickListener { toast(item.title) }
-            }
         }
     }
 }

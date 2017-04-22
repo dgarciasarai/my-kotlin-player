@@ -2,6 +2,7 @@ package com.dgarciasarai.myplayer
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_detail.*
 
 class DetailActivity : AppCompatActivity() {
 
@@ -16,5 +17,10 @@ class DetailActivity : AppCompatActivity() {
         val id = intent.getIntExtra(EXTRA_ITEM_ID, -1)
 
         val item = MediaProvider.fetchMedia().firstOrNull() { it.id == id }
+
+        if (item != null) {
+            detail_thumb.loadUrl(item.url)
+            detail_video_indicator.visible = item.type == Item.Type.VIDEO
+        }
     }
 }

@@ -12,6 +12,10 @@ class MainActivity : AppCompatActivity() {
         Log.d("actual: $p", "old value: $old, new value: $new")
     }
 
+    val positiveNumber by Delegates.vetoable(0) { p, old, new ->
+        new >= 0
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

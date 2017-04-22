@@ -21,9 +21,6 @@ class MediaAdapter(val data: List<Item>) : RecyclerView.Adapter<MediaAdapter.Med
 
     override fun onBindViewHolder(holder: MediaViewHolder, position: Int) {
         holder.bind(data[position])
-        holder.itemView.setOnClickListener {
-            Toast.makeText(holder.itemView.context, data[position].title, Toast.LENGTH_SHORT).show()
-        }
     }
 
     override fun getItemCount() = data.size
@@ -36,6 +33,10 @@ class MediaAdapter(val data: List<Item>) : RecyclerView.Adapter<MediaAdapter.Med
         fun bind(item: Item) {
             title.text = item.title
             Picasso.with(thumb.context).load(item.url).into(thumb)
+
+            itemView.setOnClickListener {
+                Toast.makeText(itemView.context, item.title, Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }

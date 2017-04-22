@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val recyclerView = findViewById(R.id.recycler) as RecyclerView
+        val recyclerView = find<RecyclerView>(R.id.recycler)
         recyclerView.adapter = MediaAdapter(fetchMedia())
 
         toast("Hello Kotlin!")
@@ -20,4 +20,3 @@ class MainActivity : AppCompatActivity() {
         startActivity<MainActivity>()
     }
 }
-

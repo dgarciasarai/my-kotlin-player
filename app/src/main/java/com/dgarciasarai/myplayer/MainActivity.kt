@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         
         recycler.adapter = MediaAdapter(fetchMedia()) {
-            item -> toast(item.title)
+            toast(it.title)
         }
     }
 }

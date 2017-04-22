@@ -15,7 +15,5 @@ class MainActivity : AppCompatActivity() {
         recyclerView.adapter = MediaAdapter(fetchMedia())
 
     }
-
-    fun toast(msg: String) = Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
 }
 

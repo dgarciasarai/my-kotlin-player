@@ -5,7 +5,9 @@ import android.support.annotation.LayoutRes
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Toast
+import com.squareup.picasso.Picasso
 
 /**
  * @author Sarai Díaz García
@@ -18,3 +20,5 @@ Toast.LENGTH_SHORT) = itemView.context.toast(msg, length)
 
 fun ViewGroup.inflate(@LayoutRes layoutRes: Int) =
     LayoutInflater.from(context).inflate(layoutRes, this, false)
+
+fun ImageView.loadUrl(url: String) = Picasso.with(context).load(url).into(this)

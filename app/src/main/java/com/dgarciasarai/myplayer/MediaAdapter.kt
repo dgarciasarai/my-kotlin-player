@@ -1,7 +1,6 @@
 package com.dgarciasarai.myplayer
 
 import android.support.v7.widget.RecyclerView
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -30,8 +29,7 @@ class MediaAdapter(val data: List<Item>) : RecyclerView.Adapter<MediaAdapter.Med
 
         fun bind(item: Item) {
             title.text = item.title
-            Picasso.with(thumb.context).load(item.url).into(thumb)
-
+            thumb.loadUrl(item.url)
             itemView.setOnClickListener { toast(item.title) }
         }
     }

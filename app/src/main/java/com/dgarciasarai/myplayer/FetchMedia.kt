@@ -15,3 +15,10 @@ fun fetchMedia(): List<Item> = listOf(
     Item("Title 9", "http://lorempixel.com/400/400/cats/9", Item.Type.VIDEO),
     Item("Title 10", "http://lorempixel.com/400/400/cats/10", Item.Type.PHOTO)
 )
+
+fun test() {
+    val list = listOf(4, 2, 1, 3)
+    val newList = list.filter { it % 2 == 0 }
+        .sorted()
+        .map { "Title $it" }
+}

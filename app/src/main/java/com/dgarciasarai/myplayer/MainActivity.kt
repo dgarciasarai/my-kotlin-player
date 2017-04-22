@@ -15,7 +15,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         recycler.adapter = adapter
-        adapter.data = MediaProvider.data
+
+        progress.visible = true
+
+        MediaProvider.dataAsync { items ->
+            adapter.data = items
+            progress.visible = false
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -24,12 +30,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val media = MediaProvider.data
-        adapter.data = when (item.itemId) {
-            R.id.filter_all -> media
-            R.id.filter_photos -> media.filter { it.type == Item.Type.PHOTO }
-            R.id.filter_videos -> media.filter { it.type == Item.Type.VIDEO }
-            else -> media
+        progress.visible = true
+        MediaProvider.dataAsync { items ->
+            adapter.data = when (item.itemId) {
+                R.id.filter_all -> items
+                R.id.filter_photos -> items.filter { it.type == Item.Type.PHOTO }
+                R.id.filter_videos -> items.filter { it.type == Item.Type.VIDEO }
+                else -> items
+            }
+            progress.visible = false
         }
 
         return true

@@ -16,13 +16,11 @@ fun test(view: View) {
 
     val int = 10
 
-    val result: String = when (int) {
+    val result: Any = when (int) {
         in 5..10 -> "Low value"
         0 -> "Try again"
-        0, 3, 50 -> "Wow..." //Zero takes previous case
+        0, 3, 50 -> 2 //Zero takes previous case
         in 70..120 -> "Perfect value!"
-        else -> "NaN"
+        else -> throw IllegalStateException("Value not valid!")
     }
-
-    print(result)
 }

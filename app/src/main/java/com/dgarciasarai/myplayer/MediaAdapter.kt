@@ -3,7 +3,7 @@ package com.dgarciasarai.myplayer
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import kotlin.properties.Delegates
 import kotlinx.android.synthetic.main.view_media_item.view.media_thumb as mediaThumb
 import kotlinx.android.synthetic.main.view_media_item.view.media_title as mediaTitle
 import kotlinx.android.synthetic.main.view_media_item.view.media_video_indicator as mediaVideoIndicator
@@ -11,8 +11,12 @@ import kotlinx.android.synthetic.main.view_media_item.view.media_video_indicator
 /**
  * @author Sarai Díaz García
  */
-class MediaAdapter(val data: List<Item>,
-    val listener: (Item) -> Unit) : RecyclerView.Adapter<MediaAdapter.MediaViewHolder>() {
+class MediaAdapter(val listener: (Item) -> Unit) :
+    RecyclerView.Adapter<MediaAdapter.MediaViewHolder>() {
+
+    var data: List<Item> by Delegates.observable(emptyList()) { _, _, _ ->
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MediaViewHolder {
         return MediaViewHolder(parent.inflate(R.layout.view_media_item))
@@ -32,17 +36,6 @@ class MediaAdapter(val data: List<Item>,
             mediaThumb.loadUrl(item.url)
             mediaVideoIndicator.visible = item.type == Item.Type.VIDEO
             setOnClickListener { toast(item.title) }
-
-            //val textView = TextView(itemView.context)
-            //textView.text = "wow"
-            //textView.visible = true
-            //textView.textSize = 20f
-
-            val textView = TextView(itemView.context).apply {
-                text = "wow"
-                visible = true
-                textSize = 20f
-            }
         }
     }
 }

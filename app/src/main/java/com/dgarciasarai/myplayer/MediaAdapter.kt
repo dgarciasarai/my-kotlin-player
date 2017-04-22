@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import com.squareup.picasso.Picasso
 
 /**
  * @author Sarai Díaz García
@@ -30,6 +31,7 @@ class MediaAdapter(val data: List<Item>) : RecyclerView.Adapter<MediaAdapter.Med
 
         fun bind(item: Item) {
             title.text = item.title
+            Picasso.with(thumb.context).load(item.url).into(thumb)
         }
     }
 }

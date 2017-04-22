@@ -3,15 +3,19 @@ package com.dgarciasarai.myplayer
 /**
  * @author Sarai Díaz García
  */
-abstract class Person(val name: String, val age: Int)
-
-class Developer(name: String) : Person(name, 24)
-
-class MyClass(val name: String = "", val age: Int = 20)
+class Person(name: String, age: Int) {
+    var name = name
+        get() = "Name: $field"
+        set(value) {
+            if(value.isNotEmpty()) {
+                field = value
+            }
+        } 
+    var age = age
+}
 
 fun test() {
-    val myValDefault = MyClass()
-    val myValName = MyClass("MyName")
-    val myValNameAge = MyClass("MyName", 25)
-    val myValAge = MyClass(age = 30)
+    val person = Person("Antonio", 31)
+    val name = person.name
+    person.name = "Miguel"
 }

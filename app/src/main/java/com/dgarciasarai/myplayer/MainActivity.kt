@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         val viewGroup: ViewGroup = FrameLayout(this)
-        val list: List<View> = viewGroup.filterViews { view -> view.visible }
+        val list: List<View> = viewGroup.filterViews { it.visible }
     }
 }
 

@@ -16,6 +16,8 @@ class MainActivity : AppCompatActivity() {
 
         toast("Hello Kotlin!")
         toast("Hello World with looong toast", Toast.LENGTH_LONG)
+
+        startActivity<MainActivity>()
     }
 }
 

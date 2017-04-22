@@ -1,6 +1,8 @@
 package com.dgarciasarai.myplayer
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.support.annotation.LayoutRes
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -22,3 +24,6 @@ fun ViewGroup.inflate(@LayoutRes layoutRes: Int) =
     LayoutInflater.from(context).inflate(layoutRes, this, false)
 
 fun ImageView.loadUrl(url: String) = Picasso.with(context).load(url).into(this)
+
+inline fun <reified T : Activity> Context.startActivity() =
+    startActivity(Intent(this, T::class.java))

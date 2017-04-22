@@ -1,12 +1,24 @@
 package com.dgarciasarai.myplayer
 
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
+
 /**
  * @author Sarai Díaz García
  */
 
 object MediaProvider {
 
-    val data by lazy { fetchMedia() }
+    fun dataAsync(f: (List<Item>) -> Unit) {
+        doAsync {
+            val data = fetchMedia()
+            //More realistic...
+            Thread.sleep(2000)
+            uiThread {
+                f(data)
+            }
+        }
+    }
 
     private fun fetchMedia() =
         (1..10).map {

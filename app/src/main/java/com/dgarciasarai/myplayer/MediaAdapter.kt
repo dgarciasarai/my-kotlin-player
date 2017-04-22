@@ -14,8 +14,7 @@ import com.squareup.picasso.Picasso
 class MediaAdapter(val data: List<Item>) : RecyclerView.Adapter<MediaAdapter.MediaViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MediaViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.view_media_item, parent, false)
-        return MediaViewHolder(v)
+        return MediaViewHolder(parent.inflate(R.layout.view_media_item))
     }
 
     override fun onBindViewHolder(holder: MediaViewHolder, position: Int) {

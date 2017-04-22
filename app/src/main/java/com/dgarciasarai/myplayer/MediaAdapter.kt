@@ -5,8 +5,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import com.squareup.picasso.Picasso
-import org.w3c.dom.Text
 
 /**
  * @author Sarai Díaz García
@@ -27,10 +25,13 @@ class MediaAdapter(val data: List<Item>) : RecyclerView.Adapter<MediaAdapter.Med
 
         val title = find<TextView>(R.id.media_title)
         val thumb = find<ImageView>(R.id.media_thumb)
+        val mediaVideoIndicator = find<ImageView>(R.id.media_video_indicator)
 
         fun bind(item: Item) {
             title.text = item.title
             thumb.loadUrl(item.url)
+            mediaVideoIndicator.visibility =
+                if (item.type == Item.Type.VIDEO) View.VISIBLE else View.GONE
             itemView.setOnClickListener { toast(item.title) }
         }
     }

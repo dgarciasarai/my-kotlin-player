@@ -2,16 +2,22 @@ package com.dgarciasarai.myplayer
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.RecyclerView
+import android.util.Log
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlin.properties.Delegates
 
 class MainActivity : AppCompatActivity() {
 
-    val recycler by lazy { find<RecyclerView>(R.id.recycler) }
+    var observedNumber by Delegates.observable(0) { p, old, new ->
+        Log.d("actual: $p", "old value: $old, new value: $new")
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         recycler.adapter = MediaAdapter(fetchMedia()) { toast(it.title) }
+
+        observedNumber = 20
     }
 }

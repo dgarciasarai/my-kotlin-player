@@ -10,4 +10,7 @@ fun test(view: View) {
     val item: Item? = null
     item.title //Null
     item?.title //Good!
+
+    // Elvis operator
+    val notNullItem : Item = item ?: Item("Item 1", "Url 1", Item.Type.PHOTO)
 }

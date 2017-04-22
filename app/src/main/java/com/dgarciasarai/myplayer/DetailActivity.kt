@@ -19,6 +19,7 @@ class DetailActivity : AppCompatActivity() {
         val item = MediaProvider.fetchMedia().firstOrNull() { it.id == id }
 
         if (item != null) {
+            supportActionBar?.title = item.title
             detail_thumb.loadUrl(item.url)
             detail_video_indicator.visible = item.type == Item.Type.VIDEO
         }

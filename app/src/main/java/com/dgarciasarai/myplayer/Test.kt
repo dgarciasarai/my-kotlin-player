@@ -12,7 +12,7 @@ fun test(view: View) {
     item?.title //Good!
 
     // Elvis operator
-    val notNullItem: Item = item ?: Item("Item 1", "Url 1", Item.Type.PHOTO)
+    val notNullItem: Item = item ?: Item(1, "Item 1", "Url 1", Item.Type.PHOTO)
 
     //!! operator
     val title: String = item!!.title

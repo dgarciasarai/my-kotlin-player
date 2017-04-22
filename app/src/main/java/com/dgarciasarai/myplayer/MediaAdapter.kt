@@ -12,11 +12,7 @@ import kotlinx.android.synthetic.main.view_media_item.view.media_video_indicator
  * @author Sarai Díaz García
  */
 class MediaAdapter(val data: List<Item>,
-    val listener: Listener) : RecyclerView.Adapter<MediaAdapter.MediaViewHolder>() {
-
-    interface Listener {
-        fun onClick(item: Item)
-    }
+    val listener: (Item) -> Unit) : RecyclerView.Adapter<MediaAdapter.MediaViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MediaViewHolder {
         return MediaViewHolder(parent.inflate(R.layout.view_media_item))
@@ -24,7 +20,7 @@ class MediaAdapter(val data: List<Item>,
 
     override fun onBindViewHolder(holder: MediaViewHolder, position: Int) {
         holder.bind(data[position])
-        holder.itemView.setOnClickListener { listener.onClick(data[position]) }
+        holder.itemView.setOnClickListener { listener(data[position]) }
     }
 
     override fun getItemCount() = data.size

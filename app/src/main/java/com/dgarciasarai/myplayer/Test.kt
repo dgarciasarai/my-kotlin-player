@@ -7,12 +7,5 @@ import android.widget.TextView
  * @author Sarai Díaz García
  */
 fun test(view: View) {
-
-    val int = 20
-
-    when {
-        view is TextView -> print(view.text)
-        System.currentTimeMillis() > 0 -> "System"
-        int in 0..30 -> print("")
-    }
+    val int = if (view is TextView) 0 else 1
 }

@@ -7,22 +7,11 @@ open class Person(val name: String, val age: Int)
 
 class Developer(name: String) : Person(name, 24)
 
-class MyClass {
-    val name: String
-    val age: Int
-
-    constructor(name: String) {
-        this.name = name
-        this.age = 20
-    }
-
-    constructor(age: Int) {
-        this.name = ""
-        this.age = age
-    }
-}
+class MyClass(val name: String = "", val age: Int = 20)
 
 fun test() {
-    val person = Person("Name", 20)
-    person.name
+    val myValDefault = MyClass()
+    val myValName = MyClass("MyName")
+    val myValNameAge = MyClass("MyName", 25)
+    val myValAge = MyClass(age = 30)
 }

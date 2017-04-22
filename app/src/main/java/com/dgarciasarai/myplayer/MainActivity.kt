@@ -2,6 +2,9 @@ package com.dgarciasarai.myplayer
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.View
+import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -18,6 +21,9 @@ class MainActivity : AppCompatActivity() {
         val textView = with2(TextView(this)) {
             textSize = 20f
         }
+
+        val viewGroup: ViewGroup = FrameLayout(this)
+        val list: List<View> = viewGroup.filterViews { view -> view.visible }
     }
 }
 
@@ -31,3 +37,13 @@ fun <T : Any> with2(obj: T, f: T.() -> Unit): T {
     return obj
 }
 
+fun ViewGroup.filterViews(condition: (View) -> Boolean): List<View> {
+    val list = mutableListOf<View>()
+    for (i in 0 until childCount) {
+        val view = getChildAt(i)
+        if (condition(view)) {
+            list.add(view)
+        }
+    }
+    return list
+}

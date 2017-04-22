@@ -16,7 +16,5 @@ class MainActivity : AppCompatActivity() {
         toast("My first toast!")
     }
 
-    fun toast(msg: String) {
-        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
-    }
+    fun toast(msg: String) = Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
 }

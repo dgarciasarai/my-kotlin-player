@@ -3,8 +3,8 @@ package com.dgarciasarai.myplayer
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.view_media_item.view.media_title as mediaTitle
 import kotlinx.android.synthetic.main.view_media_item.view.media_thumb as mediaThumb
+import kotlinx.android.synthetic.main.view_media_item.view.media_title as mediaTitle
 import kotlinx.android.synthetic.main.view_media_item.view.media_video_indicator as mediaVideoIndicator
 
 /**
@@ -25,10 +25,12 @@ class MediaAdapter(val data: List<Item>) : RecyclerView.Adapter<MediaAdapter.Med
     class MediaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(item: Item) {
-            itemView.mediaTitle.text = item.title
-            itemView.mediaThumb.loadUrl(item.url)
-            itemView.mediaVideoIndicator.visible = item.type == Item.Type.VIDEO
-            itemView.setOnClickListener { toast(item.title) }
+            with(itemView) {
+                mediaTitle.text = item.title
+                mediaThumb.loadUrl(item.url)
+                mediaVideoIndicator.visible = item.type == Item.Type.VIDEO
+                setOnClickListener { toast(item.title) }
+            }
         }
     }
 }

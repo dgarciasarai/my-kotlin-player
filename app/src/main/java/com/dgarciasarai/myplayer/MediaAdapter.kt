@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.squareup.picasso.Picasso
+import org.w3c.dom.Text
 
 /**
  * @author Sarai Díaz García
@@ -24,8 +25,8 @@ class MediaAdapter(val data: List<Item>) : RecyclerView.Adapter<MediaAdapter.Med
 
     class MediaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        val title = itemView.findViewById(R.id.media_title) as TextView
-        val thumb = itemView.findViewById(R.id.media_thumb) as ImageView
+        val title = find<TextView>(R.id.media_title)
+        val thumb = find<ImageView>(R.id.media_thumb)
 
         fun bind(item: Item) {
             title.text = item.title

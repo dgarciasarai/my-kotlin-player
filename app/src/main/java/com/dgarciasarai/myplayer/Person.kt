@@ -3,19 +3,17 @@ package com.dgarciasarai.myplayer
 /**
  * @author Sarai Díaz García
  */
-class Person(name: String, age: Int) {
-    var name = name
-        get() = "Name: $field"
-        set(value) {
-            if(value.isNotEmpty()) {
-                field = value
-            }
-        } 
-    var age = age
+interface Person {
+    val name: String
+    val age: Int
+
+    fun getDescription() = "Name: $name, age: $age"
 }
 
+class Developer(override val name: String, override val age: Int) : Person
+
 fun test() {
-    val person = Person("Antonio", 31)
-    val name = person.name
-    person.name = "Miguel"
+    val developer = Developer("Antonio", 31)
+    val name = developer.name
+    developer.getDescription()
 }

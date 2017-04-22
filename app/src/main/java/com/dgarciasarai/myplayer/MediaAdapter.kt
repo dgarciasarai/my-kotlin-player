@@ -30,8 +30,7 @@ class MediaAdapter(val data: List<Item>) : RecyclerView.Adapter<MediaAdapter.Med
         fun bind(item: Item) {
             title.text = item.title
             thumb.loadUrl(item.url)
-            mediaVideoIndicator.visibility =
-                if (item.type == Item.Type.VIDEO) View.VISIBLE else View.GONE
+            mediaVideoIndicator.visible(item.type == Item.Type.VIDEO)
             itemView.setOnClickListener { toast(item.title) }
         }
     }

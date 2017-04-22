@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
             toast(it.title)
         }
 
-        TextView(this).apply2 {
+        val textView = with2(TextView(this)) {
             textSize = 20f
         }
     }
@@ -25,3 +25,9 @@ fun <T : Any> T.apply2(f: T.() -> Unit): T {
     this.f()
     return this
 }
+
+fun <T : Any> with2(obj: T, f: T.() -> Unit): T {
+    obj.f()
+    return obj
+}
+

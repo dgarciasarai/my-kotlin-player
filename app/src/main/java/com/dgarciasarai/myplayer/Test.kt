@@ -13,4 +13,7 @@ fun test(view: View) {
 
     // Elvis operator
     val notNullItem : Item = item ?: Item("Item 1", "Url 1", Item.Type.PHOTO)
+
+    //!! operator
+    val title: String = item!!.title
 }

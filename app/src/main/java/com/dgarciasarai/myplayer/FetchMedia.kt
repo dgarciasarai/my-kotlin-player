@@ -21,4 +21,7 @@ fun test() {
     val newList = list.filter { it % 2 == 0 }
         .sorted()
         .map { "Title $it" }
+
+    (10 until 100 step 2).map { "Title $it" }
+    (10 downTo 0).filter { it % 2 == 0 }
 }

@@ -16,12 +16,8 @@ fun fetchMedia(): List<Item> = listOf(
     Item("Title 10", "http://lorempixel.com/400/400/cats/10", Item.Type.PHOTO)
 )
 
-fun test() {
-    val list = listOf(4, 2, 1, 3)
-    val newList = list.filter { it % 2 == 0 }
-        .sorted()
-        .map { "Title $it" }
-
-    (10 until 100 step 2).map { "Title $it" }
-    (10 downTo 0).filter { it % 2 == 0 }
-}
+fun fetchMedia2() =
+    (0..10).map {
+        Item("Title $it", "http://lorempixel.com/400/400/cats/$it",
+            if (it % 3 == 0) Item.Type.VIDEO else Item.Type.PHOTO)
+    }

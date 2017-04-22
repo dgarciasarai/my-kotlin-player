@@ -21,11 +21,9 @@ class MediaAdapter(val data: List<Item>) : RecyclerView.Adapter<MediaAdapter.Med
 
     override fun onBindViewHolder(holder: MediaViewHolder, position: Int) {
         holder.bind(data[position])
-        holder.itemView.setOnClickListener(object: View.OnClickListener {
-            override fun onClick(v: View?) {
-                Toast.makeText(holder.itemView.context, data[position].title, Toast.LENGTH_SHORT).show()
-            }
-        })
+        holder.itemView.setOnClickListener {
+            Toast.makeText(holder.itemView.context, data[position].title, Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun getItemCount() = data.size

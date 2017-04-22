@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import com.squareup.picasso.Picasso
 
 /**
@@ -34,9 +33,7 @@ class MediaAdapter(val data: List<Item>) : RecyclerView.Adapter<MediaAdapter.Med
             title.text = item.title
             Picasso.with(thumb.context).load(item.url).into(thumb)
 
-            itemView.setOnClickListener {
-                Toast.makeText(itemView.context, item.title, Toast.LENGTH_SHORT).show()
-            }
+            itemView.setOnClickListener { toast(item.title) }
         }
     }
 }

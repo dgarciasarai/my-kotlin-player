@@ -11,7 +11,9 @@ import kotlinx.android.synthetic.main.view_media_item.view.media_video_indicator
 /**
  * @author Sarai Díaz García
  */
-class MediaAdapter(val listener: (Item) -> Unit) :
+typealias Listener = (Item) -> Unit
+
+class MediaAdapter(val listener: Listener) :
     RecyclerView.Adapter<MediaAdapter.MediaViewHolder>() {
 
     var data: List<Item> by Delegates.observable(emptyList()) { _, _, _ ->

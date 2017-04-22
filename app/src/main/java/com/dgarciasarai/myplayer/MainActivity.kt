@@ -5,10 +5,13 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.startActivity
 
 class MainActivity : AppCompatActivity() {
 
-    val adapter = MediaAdapter { toast(it.title) }
+    val adapter = MediaAdapter {
+        startActivity<DetailActivity>(DetailActivity.EXTRA_ITEM_ID to it.id)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

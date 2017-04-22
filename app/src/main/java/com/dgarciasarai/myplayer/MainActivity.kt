@@ -10,6 +10,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        recycler.adapter = MediaAdapter(fetchMedia()) { toast(it.title) }
+        val adapter = MediaAdapter { toast(it.title) }
+        recycler.adapter = adapter
+        adapter.data = fetchMedia()
     }
 }

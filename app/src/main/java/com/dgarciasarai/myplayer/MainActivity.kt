@@ -6,6 +6,8 @@ import android.view.Menu
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_main.*
 
+object MyObject
+
 class MainActivity : AppCompatActivity() {
 
     val adapter = MediaAdapter { toast(it.title) }

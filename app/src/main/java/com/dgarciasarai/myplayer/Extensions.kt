@@ -4,16 +4,17 @@ import android.content.Context
 import android.support.annotation.LayoutRes
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 
 /**
  * @author Sarai Díaz García
  */
-fun Context.toast(msg: String) = Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+fun Context.toast(msg: String, length: Int = Toast.LENGTH_SHORT) =
+    Toast.makeText(this, msg, length).show()
 
-fun RecyclerView.ViewHolder.toast(msg: String) = itemView.context.toast(msg)
+fun RecyclerView.ViewHolder.toast(msg: String, length: Int =
+Toast.LENGTH_SHORT) = itemView.context.toast(msg, length)
 
 fun ViewGroup.inflate(@LayoutRes layoutRes: Int) =
     LayoutInflater.from(context).inflate(layoutRes, this, false)

@@ -36,4 +36,8 @@ inline fun <reified T : View> RecyclerView.ViewHolder.find(@IdRes idRes: Int): T
     return itemView.find<T>(idRes)
 }
 
-fun View.visible(visible: Boolean) = if(visible) View.VISIBLE else View.GONE
+var View.visible: Boolean
+    get() = visibility == View.VISIBLE
+    set(value) {
+        visibility = if(value) View.VISIBLE else View.GONE
+    }

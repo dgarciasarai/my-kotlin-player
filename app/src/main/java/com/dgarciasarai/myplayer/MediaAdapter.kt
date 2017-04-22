@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import com.squareup.picasso.Picasso
 
 /**
@@ -20,6 +21,11 @@ class MediaAdapter(val data: List<Item>) : RecyclerView.Adapter<MediaAdapter.Med
 
     override fun onBindViewHolder(holder: MediaViewHolder, position: Int) {
         holder.bind(data[position])
+        holder.itemView.setOnClickListener(object: View.OnClickListener {
+            override fun onClick(v: View?) {
+                Toast.makeText(holder.itemView.context, data[position].title, Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 
     override fun getItemCount() = data.size

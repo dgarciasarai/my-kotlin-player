@@ -6,6 +6,8 @@ My first Kotlin App created in the course of Antonio Leiva :computer: [@lime_cl]
 
 This app shows dummy photos and videos from [Lorem Pixel](http://lorempixel.com/) in a grid. You can filter them by photos or videos and you can view its detail as well.
 
+<img src="/img/home.png" title="Home" width="200"/> <img src="/img/menu.png" title="Menu" width="200"/> <img src="/img/filter.png" title="Filter" width="200"/> <img src="/img/detail.png" title="Detail" width="200"/>
+
 ## What's in the app?
 
 This application shows concepts such as:

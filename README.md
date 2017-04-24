@@ -17,7 +17,7 @@ This application shows concepts such as:
 * **Classes and functions**: diferences between Java and Kotlin and data classes
 * **Variables and properties**: mutable and inmutable values and type inference
 * **Lambdas**: simplify our work and new posibilities
-* **Interfaces**: can include code, not like Java
+* **Interfaces**: can include code, not like Java < 8*
 * **Extension functions**: how to add extra functions to classes that you can't access the code
 * **Operator overloading**: how to write a class that implement the common operators
 * **Delegated properties**: how to reuse code throught delegation
